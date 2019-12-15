@@ -72,6 +72,9 @@ public class DEVModel {
 		isDimInserted = true;
 		String[] dims = line.replaceAll("[^0-9 ,]+", "").split(",");
 
+		if(dims.length > 2)
+			roomDim.setHeight(dims[2]);
+		
 		roomDim.set(dims[0], dims[1]);
 		fileData.add(new StringBuffer(DIMENSTION));
 	}
@@ -147,7 +150,7 @@ public class DEVModel {
 	
 	public static void main (String[] args) {
 		DEVModel ma = new DEVModel();
-		String fileName = "C:\\Users\\Maleeka\\Downloads\\makefiles\\CO2Model";
+		String fileName = "C:\\Users\\xxxx\\Downloads\\makefiles\\CO2Model";
 		ma.readModel(fileName+".ma");
 		if(ma.getZones().size()>0) {
 			VentilationZone zone =  ma.getZones().get(1);
